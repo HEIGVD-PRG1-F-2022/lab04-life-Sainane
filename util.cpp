@@ -1,22 +1,11 @@
 /**
  * @author : Rachel Tranchida
- * @date : 01.11.2022
- * @file : config
+ * @date : 02.11.2022
+ * @file : util
  * @project : Life
  */
-#include <string>
-#include "config.h"
-#ifdef _WIN32
-
-#include "windows.h"
-#else
-#include <stdlib.h>
-#include <unistd.h>
-#endif
-
-using namespace std;
-
-
+#include <cstdio>
+#include "util.h"
 
 void setWindowsConsoleToUTF8() {
 #ifdef _WIN32
