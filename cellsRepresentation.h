@@ -9,6 +9,7 @@
 #include <vector>
 #include <iostream>
 enum class Cells {DEAD, ALIVE};
+void showEvolution(const std::vector<std::vector<Cells>> &grid);
 std::ostream& operator<<(std::ostream& os, const Cells& cell);
 std::ostream& operator<<(std::ostream& os, const std::vector<std::vector<Cells>> &grid);
 

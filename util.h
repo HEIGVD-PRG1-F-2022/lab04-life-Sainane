@@ -16,5 +16,5 @@
 void setWindowsConsoleToUTF8();
 void clearConsole();
 void wait(int milliseconds);
-void setConsoleCursorToStart();
+void setConsoleCursorToStart(int i, int j);
 #endif //LIFE_UTIL_H

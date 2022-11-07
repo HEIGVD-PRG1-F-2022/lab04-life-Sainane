@@ -8,6 +8,6 @@
 #define LIFE_CONFIG_H
 #define DEAD_COLOR "\x1b[38;2;255;255;255m  *\x1b[0m"
 #define ALIVE_COLOR "\x1b[38;2;0;0;0m  *\x1b[0m"
-const unsigned long gridSizeX = 20;
-const unsigned long gridSizeY = 20;
+const unsigned long gridSizeX = 30;
+const unsigned long gridSizeY = 30;
 #endif //LIFE_CONFIG_H

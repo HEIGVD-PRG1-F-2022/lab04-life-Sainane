@@ -4,8 +4,9 @@
  * @file : util
  * @project : Life
  */
-#include <cstdio>
 #include "util.h"
+#include <iostream>
+using namespace std;
 
 void setWindowsConsoleToUTF8() {
 #ifdef _WIN32
@@ -30,13 +31,13 @@ void wait(int milliseconds) {
 #endif
 }
 
-void setConsoleCursorToStart() {
+void setConsoleCursorToStart(int i, int j) {
 #ifdef _WIN32
     COORD Coord;
-    Coord.X = 0;
-    Coord.Y = 0;
+    Coord.X = i;
+    Coord.Y = j;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Coord);
 #else
-    printf("\033[%d;%dH", 0+1, 0+1);
+    printf("\033[%d;%dH", i, j);
 #endif
 }

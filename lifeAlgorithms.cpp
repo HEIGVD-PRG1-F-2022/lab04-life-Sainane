@@ -27,8 +27,8 @@ void evolution(vector<vector<Cells>> &grid) {
 
 int countNeighbours(const vector<vector<Cells>> &grid, int i, int j) {
     int numberOfNeighbours = 0;
-    for(int x = -1; x <=1; x++) {
-        for(int y = -1; y <=1 ; y++) {
+    for(int x = -1; x <= 1; x++) {
+        for(int y = -1; y <= 1 ; y++) {
             if(x != 0 or y != 0) {
                 if(hasNeighbour(grid, i, j, x, y)) {
                     ++numberOfNeighbours;

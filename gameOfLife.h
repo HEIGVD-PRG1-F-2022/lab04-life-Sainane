@@ -8,7 +8,9 @@
 #define LIFE_GAMEOFLIFE_H
 
 #include "lifeAlgorithms.h"
+#include "cellsRepresentation.h"
 #include <vector>
+
 void playGame();
-void addStructure(std::vector<std::vector<Cells>> &grid, const std::vector<std::vector<Cells>> &structure, unsigned long posX, unsigned long posY);
+void addStructure(std::vector<std::vector<Cells>> &grid, const std::vector<std::vector<Cells>> &pattern, unsigned long posX, unsigned long posY);
 #endif //LIFE_GAMEOFLIFE_H

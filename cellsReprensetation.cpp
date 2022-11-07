@@ -9,6 +9,7 @@
 #include "config.h"
 #include <iostream>
 #include <vector>
+#include "util.h"
 
 using namespace std;
 ostream& operator<<(ostream& os, const Cells& cell)
@@ -26,4 +27,18 @@ ostream& operator<<(ostream& os, const vector<vector<Cells>> &grid)
     }
 
     return os;
+}
+
+
+void showEvolution(const vector<vector<Cells>> &grid) {
+    string toShow;
+
+    for(const auto& i : grid) {
+        for (const auto &j: i) {
+            toShow += ((j == Cells::DEAD) ? DEAD_COLOR : ALIVE_COLOR);
+
+        }
+        toShow += "\n";
+    }
+    cout << toShow << endl;
 }
