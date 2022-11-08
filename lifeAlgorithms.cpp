@@ -68,6 +68,8 @@ bool hasNeighbour(const vector<vector<Cells>> &grid, int x, int y, int dirX, int
     return (grid[coordX][coordY] != Cells::DEAD);
 }
 
+
+
 void adaptGrid(vector<vector<Cells>> &grid) {
     unsigned long firstAliveX = grid.size()-1;
     unsigned long firstAliveY = grid[0].size()-1;

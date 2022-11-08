@@ -15,5 +15,6 @@
 #endif
 void setWindowsConsoleToUTF8();
 void clearConsole();
-void setConsoleCursorToStart();
+void setConsoleCursor(int i = 0, int j = 0);
+void calculateNewClosedCoord(int vectorSizeX, int vectorSizeY, int &x, int &y, int dirX, int dirY);
 #endif //LIFE_UTIL_H

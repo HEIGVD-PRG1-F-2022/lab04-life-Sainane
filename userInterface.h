@@ -10,5 +10,7 @@
 #include "cellsRepresentation.h"
 #include <vector>
 #include <iostream>
+void userInterface(std::vector<std::vector<Cells>> &grid);
+void showSelectionBoard(const std::vector<std::vector<Cells>> &grid, int &x, int &y);
 void askUserPattern(std::vector<std::vector<Cells>> &grid);
 #endif //LIFE_USERINTERFACE_H

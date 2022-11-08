@@ -13,23 +13,28 @@
 #include "patterns.h"
 #include <chrono>
 #include <thread>
+#include "userInterface.h"
 
 using namespace std;
 
 
 void playGameOfLife() {
+    bool adaptativeGrid = false;
     vector<vector<Cells>> grid(gridSizeX, vector<Cells>(gridSizeY, Cells::DEAD));
     //askUserPattern(grid);
-    addStructure(grid, GLIDER_GUN, 0, 0);
+    //addStructure(grid, GLIDER_GUN, 0, 0);
     //addStructure(grid, BOAT, 1, 1);
-    adaptGrid(grid);
+    //adaptGrid(grid);
+    userInterface(grid);
     for(int i = 0; i < 100; i++) {
-        setConsoleCursorToStart();
+        setConsoleCursor(0, 0);
         clearConsole();
 
-        evolution(grid);
-        adaptGrid(grid);
 
+        if (adaptativeGrid) {
+        adaptGrid(grid);
+    }
+        evolution(grid);
         showEvolution(grid);
 
         this_thread::sleep_for(chrono::milliseconds(50));
