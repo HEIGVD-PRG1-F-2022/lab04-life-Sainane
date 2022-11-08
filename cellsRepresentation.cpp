@@ -9,7 +9,6 @@
 #include "config.h"
 #include <iostream>
 #include <vector>
-#include "util.h"
 
 using namespace std;
 ostream& operator<<(ostream& os, const Cells& cell)
@@ -19,13 +18,13 @@ ostream& operator<<(ostream& os, const Cells& cell)
 }
 ostream& operator<<(ostream& os, const vector<vector<Cells>> &grid)
 {
+    string toShow;
     for(const auto& i : grid) {
         for(const auto& j : i) {
-            os << j;
+          os << j;
         }
-        os << endl;
+       os << endl;
     }
-
     return os;
 }
 

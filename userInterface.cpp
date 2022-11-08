@@ -5,7 +5,6 @@
  * @project : Life
  */
 #include "userInterface.h"
-#include "config.h"
 #include <vector>
 
 using namespace std;

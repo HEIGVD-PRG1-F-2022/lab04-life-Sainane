@@ -6,6 +6,7 @@
  */
 #include "util.h"
 #include <iostream>
+
 using namespace std;
 
 void setWindowsConsoleToUTF8() {
@@ -23,21 +24,19 @@ void clearConsole() {
     system("clear");
 #endif
 }
-void wait(int milliseconds) {
+
+void setConsoleCursorToStart() {
 #ifdef _WIN32
-    Sleep(milliseconds);
+    COORD Coord;
+    Coord.X = 0.0;
+    Coord.Y = 0.0;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Coord);
 #else
-    sleep(milliseconds / 1000);
+    printf("\033[%d;%dH", 0, 0);
 #endif
 }
 
-void setConsoleCursorToStart(int i, int j) {
-#ifdef _WIN32
-    COORD Coord;
-    Coord.X = i;
-    Coord.Y = j;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Coord);
-#else
-    printf("\033[%d;%dH", i, j);
-#endif
-}
+
+
+
+

@@ -11,27 +11,28 @@
 #include "cellsRepresentation.h"
 #include "config.h"
 #include "patterns.h"
-#include "userInterface.h"
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
 
-void playGame() {
+void playGameOfLife() {
     vector<vector<Cells>> grid(gridSizeX, vector<Cells>(gridSizeY, Cells::DEAD));
-    askUserPattern(grid);
-    //addStructure(grid, GLIDER_GUN, 0, 0);
+    //askUserPattern(grid);
+    addStructure(grid, GLIDER_GUN, 0, 0);
     //addStructure(grid, BOAT, 1, 1);
-
-    for(int i = 0; i < 20; i++) {
-        setConsoleCursorToStart(0, 0);
+    adaptGrid(grid);
+    for(int i = 0; i < 100; i++) {
+        setConsoleCursorToStart();
         clearConsole();
 
-        showEvolution(grid);
         evolution(grid);
+        adaptGrid(grid);
+
         showEvolution(grid);
 
-
-        wait(500);
+        this_thread::sleep_for(chrono::milliseconds(50));
     }
 }
 

@@ -8,7 +8,13 @@
 #define LIFE_CELLSREPRESENTATION_H
 #include <vector>
 #include <iostream>
+
 enum class Cells {DEAD, ALIVE};
+
+/**
+ * print the grid of cells
+ * @param grid grid of cells
+ */
 void showEvolution(const std::vector<std::vector<Cells>> &grid);
 std::ostream& operator<<(std::ostream& os, const Cells& cell);
 std::ostream& operator<<(std::ostream& os, const std::vector<std::vector<Cells>> &grid);

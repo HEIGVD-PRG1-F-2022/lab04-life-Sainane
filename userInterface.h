@@ -10,6 +10,5 @@
 #include "cellsRepresentation.h"
 #include <vector>
 #include <iostream>
-void showEvolution(const std::vector<std::vector<Cells>> &grid);
 void askUserPattern(std::vector<std::vector<Cells>> &grid);
 #endif //LIFE_USERINTERFACE_H

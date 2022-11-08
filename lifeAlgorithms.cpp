@@ -11,26 +11,35 @@ using namespace std;
 
 
 void evolution(vector<vector<Cells>> &grid) {
+
+    //we copy the current grid to update all cells according to last state
     vector<vector<Cells>> lastState(grid);
-    int count;
+
     for(int i = 0; i < lastState.size(); i++) {
         for(int j = 0; j < lastState[i].size(); j++) {
-            count = countNeighbours(lastState, i, j);
-            if(count ==3) {
-                grid[i][j] = Cells::ALIVE;
-            } else if(count < 2 or count > 3) {
-                grid[i][j] = Cells::DEAD;
+            switch(countNeighbours(lastState, i, j)) {
+                case 2 :
+                    break;
+                case 3 :
+                    grid[i][j] = Cells::ALIVE;
+                    break;
+                default :
+                    grid[i][j] = Cells::DEAD;
+                    break;
             }
         }
     }
 }
 
-int countNeighbours(const vector<vector<Cells>> &grid, int i, int j) {
+int countNeighbours(const vector<vector<Cells>> &grid, int x, int y) {
     int numberOfNeighbours = 0;
-    for(int x = -1; x <= 1; x++) {
-        for(int y = -1; y <= 1 ; y++) {
-            if(x != 0 or y != 0) {
-                if(hasNeighbour(grid, i, j, x, y)) {
+    //distance of neighbour we want to count
+    const int DISTANCE = 1;
+    //to test for neighbours in all directions
+    for(int i = -DISTANCE; i <= DISTANCE; i++) {
+        for(int j = -DISTANCE; j <= DISTANCE ; j++) {
+            if(i != 0 or j != 0) { //except the cell we consider
+                if(hasNeighbour(grid, x, y, i, j)) {
                     ++numberOfNeighbours;
                 }
             }
@@ -39,22 +48,63 @@ int countNeighbours(const vector<vector<Cells>> &grid, int i, int j) {
     return numberOfNeighbours;
 }
 
-bool hasNeighbour(const vector<vector<Cells>> &grid, int i, int j, int dirX, int dirY) {
+bool hasNeighbour(const vector<vector<Cells>> &grid, int x, int y, int dirX, int dirY) {
     unsigned long coordX, coordY;
-    if(i + dirX < 0) {
+    if(x + dirX < 0) {
         coordX = grid.size()-1;
-    } else if(i + dirX >  grid.size()-1) {
+    } else if(x + dirX > grid.size() - 1) {
         coordX = 0;
     } else {
-        coordX = i + dirX;
+        coordX = x + dirX;
     }
 
-    if(j + dirY < 0) {
-        coordY = grid[i].size()-1;
-    } else if(j + dirY > grid[i].size()-1) {
+    if(y + dirY < 0) {
+        coordY = grid[x].size() - 1;
+    } else if(y + dirY > grid[x].size() - 1) {
         coordY = 0;
     } else {
-        coordY = j + dirY;
+        coordY = y + dirY;
     }
     return (grid[coordX][coordY] != Cells::DEAD);
+}
+
+void adaptGrid(vector<vector<Cells>> &grid) {
+    unsigned long firstAliveX = grid.size()-1;
+    unsigned long firstAliveY = grid[0].size()-1;
+    unsigned long lastAliveX = 0;
+    unsigned long lastAliveY = 0;
+    vector<vector<Cells>> saveGrid(grid);
+    for(int i = 0; i < grid.size(); i++) {
+        for(int j = 0; j < grid[i].size(); j++) {
+            if(grid[i][j] == Cells::ALIVE) {
+                if(firstAliveX > i) {
+                    firstAliveX = i;
+                }
+                if(lastAliveX < i) {
+                    lastAliveX = i;
+                }
+                if(firstAliveY > j) {
+                    firstAliveY = j;
+                }
+                if(lastAliveY < j) {
+                    lastAliveY = j;
+                }
+
+            }
+
+        }
+    }
+
+    grid.clear();
+    grid.emplace_back(lastAliveY-firstAliveY+3, Cells::DEAD);
+    for(size_t i = firstAliveX; i < lastAliveX+1; i++ ) {
+        grid.emplace_back();
+        grid[i-firstAliveX+1].push_back(Cells::DEAD);
+        for(size_t j = firstAliveY; j < lastAliveY + 1; j++) {
+            grid[i-firstAliveX+1].push_back(saveGrid[i][j]);
+        }
+        grid[i-firstAliveX+1].push_back(Cells::DEAD);
+
+    }
+    grid.emplace_back(lastAliveY-firstAliveY+3, Cells::DEAD);
 }
