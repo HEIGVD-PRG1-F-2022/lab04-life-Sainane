@@ -25,7 +25,7 @@ void clearConsole() {
 #endif
 }
 
-void setConsoleCursor(int i, int j) {
+void setConsoleCursor(short i, short j) {
 #ifdef _WIN32
     COORD Coord;
     Coord.X = i;
@@ -37,26 +37,27 @@ void setConsoleCursor(int i, int j) {
 
 }
 
-void calculateNewClosedCoord(int vectorSizeX, int vectorSizeY, int &x, int &y, int dirX, int dirY) {
+void calculateNewClosedCoord(unsigned long vectorSizeX, unsigned long vectorSizeY, unsigned long &x, unsigned long &y,
+                             int dirX, int dirY) {
     unsigned long coordX, coordY;
 
-    if(x + dirX < 0) {
-        coordX = vectorSizeX-1;
-    } else if(x + dirX > vectorSizeX - 1) {
+    if (x + dirX < 0) {
+        coordX = vectorSizeX - 1;
+    } else if (x + dirX > vectorSizeX - 1) {
         coordX = 0;
     } else {
         coordX = x + dirX;
     }
 
-    if(y + dirY < 0) {
+    if (y + dirY < 0) {
         coordY = vectorSizeY - 1;
-    } else if(y + dirY > vectorSizeY - 1) {
+    } else if (y + dirY > vectorSizeY - 1) {
         coordY = 0;
     } else {
         coordY = y + dirY;
     }
- x = coordX;
-    y= coordY;
+    x = coordX;
+    y = coordY;
 }
 
 

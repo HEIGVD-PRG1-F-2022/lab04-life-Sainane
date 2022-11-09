@@ -7,24 +7,25 @@
  */
 #ifndef LIFE_PATTERNS_H
 #define LIFE_PATTERNS_H
+
 #include <vector>
 #include "cellsRepresentation.h"
 
 /**
  * Boat pattern, produce a constant figure that doesn't move, the cells don't die
  */
-const  std::vector<std::vector<Cells>> BOAT = {
+const std::vector<std::vector<Cells>> BOAT = {
         {Cells::ALIVE, Cells::ALIVE, Cells::DEAD},
-        {Cells::ALIVE, Cells::DEAD, Cells::ALIVE},
-        {Cells::DEAD, Cells::ALIVE, Cells::DEAD}
+        {Cells::ALIVE, Cells::DEAD,  Cells::ALIVE},
+        {Cells::DEAD,  Cells::ALIVE, Cells::DEAD}
 };
 
 /**
  * Glider pattern, little spaceship that move indefinitely
  */
-const  std::vector<std::vector<Cells>> GLIDER = {
-        {Cells::ALIVE, Cells::DEAD, Cells::DEAD},
-        {Cells::DEAD, Cells::ALIVE, Cells::ALIVE},
+const std::vector<std::vector<Cells>> GLIDER = {
+        {Cells::ALIVE, Cells::DEAD,  Cells::DEAD},
+        {Cells::DEAD,  Cells::ALIVE, Cells::ALIVE},
         {Cells::ALIVE, Cells::ALIVE, Cells::DEAD}
 };
 
@@ -32,14 +33,24 @@ const  std::vector<std::vector<Cells>> GLIDER = {
  * Glider gun pattern : pattern that generates glider
  */
 const std::vector<std::vector<Cells>> GLIDER_GUN = {
-        {Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD},
-        {Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD},
-        {Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE},
-        {Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE},
-        {Cells::ALIVE, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD},
-        {Cells::ALIVE, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::ALIVE, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD},
-        {Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD},
-        {Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD},
-        {Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD}
+        {Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD},
+        {Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD,  Cells::ALIVE, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD},
+        {Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD,  Cells::ALIVE, Cells::ALIVE, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE, Cells::DEAD,  Cells::DEAD, Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE},
+        {Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::ALIVE, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::ALIVE, Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE, Cells::DEAD,  Cells::DEAD, Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE},
+        {Cells::ALIVE, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::ALIVE, Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE, Cells::DEAD,  Cells::DEAD, Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD},
+        {Cells::ALIVE, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::ALIVE, Cells::DEAD,  Cells::ALIVE, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD,  Cells::ALIVE, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD},
+        {Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::ALIVE, Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD},
+        {Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::ALIVE, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::ALIVE, Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD},
+        {Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD,  Cells::ALIVE, Cells::ALIVE, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD,  Cells::DEAD,  Cells::DEAD, Cells::DEAD,  Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD,  Cells::DEAD}
+};
+
+const std::vector<std::vector<Cells>> MAZING = {
+        {Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE, Cells::DEAD, Cells::DEAD},
+        {Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD},
+        {Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE},
+        {Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::ALIVE},
+        {Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD},
+        {Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::ALIVE, Cells::DEAD},
+        {Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::DEAD, Cells::ALIVE, Cells::DEAD, Cells::DEAD}
 };
 #endif //LIFE_PATTERNS_H

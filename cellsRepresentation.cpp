@@ -9,21 +9,22 @@
 #include "config.h"
 #include <iostream>
 #include <vector>
+#include "util.h"
 
 using namespace std;
-ostream& operator<<(ostream& os, const Cells& cell)
-{
-    os << ((cell==Cells::DEAD) ? DEAD_COLOR : ALIVE_COLOR);
+
+ostream &operator<<(ostream &os, const Cells &cell) {
+    os << ((cell == Cells::DEAD) ? DEAD_COLOR : ALIVE_COLOR);
     return os;
 }
-ostream& operator<<(ostream& os, const vector<vector<Cells>> &grid)
-{
+
+ostream &operator<<(ostream &os, const vector<vector<Cells>> &grid) {
     string toShow;
-    for(const auto& i : grid) {
-        for(const auto& j : i) {
-          os << j;
+    for (const auto &i: grid) {
+        for (const auto &j: i) {
+            os << j;
         }
-       os << endl;
+        os << endl;
     }
     return os;
 }
@@ -32,12 +33,14 @@ ostream& operator<<(ostream& os, const vector<vector<Cells>> &grid)
 void showEvolution(const vector<vector<Cells>> &grid) {
     string toShow;
 
-    for(const auto& i : grid) {
+    for (const auto &i: grid) {
         for (const auto &j: i) {
             toShow += ((j == Cells::DEAD) ? DEAD_COLOR : ALIVE_COLOR);
 
         }
         toShow += "\n";
     }
+
+
     cout << toShow << endl;
 }
