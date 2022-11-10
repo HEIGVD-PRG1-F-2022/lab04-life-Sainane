@@ -20,6 +20,7 @@ void simulateLife(vector<vector<Cells>> &grid, int numberOfEvolution, bool adapt
 
     clearConsole();
     setConsoleCursor(0, 0);
+
     for (int i = 0; i < numberOfEvolution; i++) {
 
 
@@ -29,6 +30,7 @@ void simulateLife(vector<vector<Cells>> &grid, int numberOfEvolution, bool adapt
         evolution(grid);
         showEvolution(grid);
         setConsoleCursor(0, 0);
+        hideCursor();
         this_thread::sleep_for(chrono::milliseconds(250));
 
 

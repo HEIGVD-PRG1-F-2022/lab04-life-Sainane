@@ -62,11 +62,11 @@ void showSelectionBoard(const vector<vector<Cells>> &grid, unsigned long &x, uns
     for (size_t i = 0; i < grid.size(); i++) {
         for (size_t j = 0; j < grid[i].size(); j++) {
             if (x == i and y == j) {
-                toShow += "\x1b[38;2;0;0;255m";
+                toShow += "\x1b[38;2;85;85;255m";
                 toShow += ((grid[i][j] == Cells::ALIVE) ? " o" : " x");
                 toShow += "\x1b[0m";
             } else {
-                toShow += "\x1b[38;2;255;255;0m";
+                toShow += "\x1b[38;2;85;255;255m";
                 toShow += ((grid[i][j] == Cells::ALIVE) ? " o" : " x");
                 toShow += "\x1b[0m";
             }

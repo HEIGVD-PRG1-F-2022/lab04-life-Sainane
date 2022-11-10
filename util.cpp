@@ -37,6 +37,18 @@ void setConsoleCursor(short i, short j) {
 
 }
 
+void hideCursor() {
+#ifdef _WIN32
+    HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_CURSOR_INFO info;
+    info.dwSize = 100;
+    info.bVisible = FALSE;
+    SetConsoleCursorInfo(consoleHandle, &info);
+#else
+    printf("\e[?25l");
+#endif
+}
+
 void calculateNewClosedCoord(unsigned long vectorSizeX, unsigned long vectorSizeY, unsigned long &x, unsigned long &y,
                              int dirX, int dirY) {
     int coordX((int) x), coordY((int) y);

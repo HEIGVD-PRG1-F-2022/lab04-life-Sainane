@@ -44,4 +44,6 @@ void setConsoleCursor(short i = 0, short j = 0);
 void calculateNewClosedCoord(unsigned long vectorSizeX, unsigned long vectorSizeY, unsigned long &x, unsigned long &y,
                              int dirX, int dirY);
 
+void hideCursor();
+
 #endif //LIFE_UTIL_H
