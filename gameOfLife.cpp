@@ -10,40 +10,39 @@
 #include "util.h"
 #include "cellsRepresentation.h"
 #include "config.h"
-#include "patterns.h"
 #include <chrono>
 #include <thread>
 #include "userInterface.h"
 
 using namespace std;
 
-void simulateLife(vector<vector<Cells>> &grid, bool adaptativeGrid) {
+void simulateLife(vector<vector<Cells>> &grid, int numberOfEvolution, bool adaptativeGrid) {
 
-}
-
-int menu(vector<Option> options) {
-
-}
-
-void playGameOfLife() {
-    bool adaptativeGrid = false;
-    vector<vector<Cells>> grid(gridSizeX, vector<Cells>(gridSizeY, Cells::DEAD));
-    userInterface(grid, adaptativeGrid);
-
-    for (int i = 0; i < 1000; i++) {
+    clearConsole();
+    setConsoleCursor(0, 0);
+    for (int i = 0; i < numberOfEvolution; i++) {
 
 
         if (adaptativeGrid) {
             adaptGrid(grid);
         }
         evolution(grid);
-        clearConsole();
         showEvolution(grid);
         setConsoleCursor(0, 0);
         this_thread::sleep_for(chrono::milliseconds(250));
 
 
     }
+}
+
+
+void playGameOfLife() {
+    //startingScreen();
+    bool adaptativeGrid = false;
+    vector<vector<Cells>> grid(GRID_SIZE_X, vector<Cells>(GRID_SIZE_Y, Cells::DEAD));
+    userInterface(grid, adaptativeGrid);
+    simulateLife(grid, EVOLUTION_NUMBER, adaptativeGrid);
+
 }
 
 void addStructure(vector<vector<Cells>> &grid, const vector<vector<Cells>> &pattern, unsigned long posX,

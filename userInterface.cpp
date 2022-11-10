@@ -1,7 +1,7 @@
 /**
  * @author : Rachel Tranchida
  * @date : 02.11.2022
- * @file : userInterface
+ * @file : userInterface3
  * @project : Life
  */
 #include "userInterface.h"
@@ -10,41 +10,17 @@
 #include "patterns.h"
 #include "gameOfLife.h"
 #include <limits>
+#include "config.h"
 
 using namespace std;
 
-void drawPattern(vector<vector<Cells>> &grid) {
 
-}
-
-
-void askUserPattern(vector<vector<Cells>> &grid) {
-    int cellsToPlace;
-    cout << "Number of cells to add : ";
-    cin >> cellsToPlace;
-
-    int x, y;
-    for (int i = 0; i < cellsToPlace; i++) {
-        string coord;
-        cout << "Cellule " << i + 1 << endl << "x : ";
-        cin >> x;
-        cout << "y : ";
-        cin >> y;
-
-        grid[x][y] = Cells::ALIVE;
-
-    }
-
-
-}
-
-
-void userInterface(vector<vector<Cells>> &grid, bool &adaptativeGrid) {
+void userInterface3(vector<vector<Cells>> &grid, bool &adaptativeGrid) {
 
     while (true) {
         clearConsole();
         setConsoleCursor();
-        cout << "Press number of option you want" << endl;
+        cout << "Enter the number of the option you want" << endl;
         cout << "1) Change grid type (current : " << (adaptativeGrid ? "Adaptative" : "Fixed / infinite") << ")"
              << endl;
         cout << "2) Free pattern simulation" << endl;
@@ -79,7 +55,7 @@ void userInterface(vector<vector<Cells>> &grid, bool &adaptativeGrid) {
 
 }
 
-void showSelectionBoard(const vector<vector<Cells>> &grid, int &x, int &y) {
+void showSelectionBoard(const vector<vector<Cells>> &grid, unsigned long &x, unsigned long &y) {
     string toShow;
     toShow += "\n";
 
@@ -106,27 +82,48 @@ void showSelectionBoard(const vector<vector<Cells>> &grid, int &x, int &y) {
 }
 
 bool userDrawGrid(vector<vector<Cells>> &grid) {
-    char choice;
-    int x(0), y(0);
-    cout << "Do something " << endl;
-    while (true) {
 
+    char choice;
+    unsigned long x(0), y(0);
+    int dirX, dirY;
+
+    while (true) {
+        dirX = 0;
+        dirY = 0;
         showSelectionBoard(grid, x, y);
         setConsoleCursor();
-        cin >> choice;
-        calculateNewClosedCoord(grid.size(), grid[0].size(), x, y,
-                                (((choice == 'w') ? -1 : ((choice == 's') ? 1 : 0))),
-                                (((choice == 'a') ? -1 : ((choice == 'd') ? 1 : 0))));
-        if (choice == '0') {
-            return false;
-        }
-        if (choice == 'r') {
-            return true;
+        cout << "Enter command (up : " << UP << ", down : " << DOWN <<
+             ", right : " << RIGHT << ", left : " << LEFT << ", change cell : "
+             << CHANGE_CELL_STATE << ", start simulation : " << START << ") : ";
+
+        while (not(cin >> choice)) {
+
         }
 
-        if (choice == 'q') {
-            grid[x][y] = ((grid[x][y] == Cells::ALIVE) ? Cells::DEAD : Cells::ALIVE);
+        switch (choice) {
+            case START :
+                return true;
+            case UP :
+                dirX = -1;
+                break;
+            case DOWN :
+                dirX = 1;
+                break;
+            case RIGHT :
+                dirY = 1;
+                break;
+            case LEFT :
+                dirY = -1;
+                break;
+            case CHANGE_CELL_STATE :
+                grid[x][y] = ((grid[x][y] == Cells::ALIVE) ? Cells::DEAD : Cells::ALIVE);
+                break;
+            default :
+                break;
         }
+        calculateNewClosedCoord(grid.size(), grid[0].size(), x, y,
+                                dirX,
+                                dirY);
     }
 }
 
@@ -165,4 +162,52 @@ bool selectPattern(vector<vector<Cells>> &grid) {
             break;
     }
     return true;
+}
+
+int menu(const string &title, const string &description, const vector<string> &options) {
+    clearConsole();
+    setConsoleCursor();
+    cout << title << endl << endl;
+    cout << description << endl << endl;
+    for (int i = 0; i < options.size(); i++) {
+        cout << i << ")" << " " << options[i] << endl;
+    }
+
+    int choice;
+    while (not(cin >> choice) or (choice < 0 or choice >= options.size())) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    return choice;
+
+
+}
+
+void userInterface(vector<vector<Cells>> &grid, bool &adaptativeGrid) {
+    int choice;
+    menu(TITLE, "",
+         {"Enter 0 to start"});
+
+    choice = menu(TITLE, "Choose grid type : ", {"Fixed/Closed", "Adaptative"});
+    switch (choice) {
+        case 0 :
+            adaptativeGrid = 0;
+            break;
+        case 1 :
+            adaptativeGrid = 1;
+            break;
+    }
+
+    choice = menu(TITLE, "Enter the number of the option you want",
+                  {"Free pattern simulation", "Simulation with predefined patterns"});
+
+    switch (choice) {
+        case 0 :
+            userDrawGrid(grid);
+            break;
+        case 1 :
+            selectPattern(grid);
+            break;
+    }
 }

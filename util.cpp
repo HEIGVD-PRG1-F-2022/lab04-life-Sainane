@@ -39,25 +39,23 @@ void setConsoleCursor(short i, short j) {
 
 void calculateNewClosedCoord(unsigned long vectorSizeX, unsigned long vectorSizeY, unsigned long &x, unsigned long &y,
                              int dirX, int dirY) {
-    unsigned long coordX, coordY;
+    int coordX((int) x), coordY((int) y);
 
-    if (x + dirX < 0) {
-        coordX = vectorSizeX - 1;
-    } else if (x + dirX > vectorSizeX - 1) {
-        coordX = 0;
+    if (coordX + dirX < 0) {
+        x = vectorSizeX - 1;
+    } else if (coordX + dirX > vectorSizeX - 1) {
+        x = 0;
     } else {
-        coordX = x + dirX;
+        x = coordX + dirX;
     }
 
-    if (y + dirY < 0) {
-        coordY = vectorSizeY - 1;
-    } else if (y + dirY > vectorSizeY - 1) {
-        coordY = 0;
+    if (coordY + dirY < 0) {
+        y = vectorSizeY - 1;
+    } else if (coordY + dirY > vectorSizeY - 1) {
+        y = 0;
     } else {
-        coordY = y + dirY;
+        y = coordY + dirY;
     }
-    x = coordX;
-    y = coordY;
 }
 
 

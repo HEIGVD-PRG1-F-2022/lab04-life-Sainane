@@ -9,12 +9,11 @@
 #include "config.h"
 #include <iostream>
 #include <vector>
-#include "util.h"
 
 using namespace std;
 
 ostream &operator<<(ostream &os, const Cells &cell) {
-    os << ((cell == Cells::DEAD) ? DEAD_COLOR : ALIVE_COLOR);
+    os << ((cell == Cells::DEAD) ? DEAD_CELL_DISPLAY : ALIVE_CELL_DISPLAY);
     return os;
 }
 
@@ -35,7 +34,7 @@ void showEvolution(const vector<vector<Cells>> &grid) {
 
     for (const auto &i: grid) {
         for (const auto &j: i) {
-            toShow += ((j == Cells::DEAD) ? DEAD_COLOR : ALIVE_COLOR);
+            toShow += ((j == Cells::DEAD) ? DEAD_CELL_DISPLAY : ALIVE_CELL_DISPLAY);
 
         }
         toShow += "\n";

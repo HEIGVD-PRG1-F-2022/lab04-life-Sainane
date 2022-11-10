@@ -11,10 +11,6 @@
 #include "cellsRepresentation.h"
 #include <vector>
 
-struct Option {
-    std::string keyToPress;
-    std::string description;
-};
 
 void playGameOfLife();
 

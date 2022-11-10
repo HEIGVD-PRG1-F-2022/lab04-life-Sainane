@@ -6,11 +6,13 @@
  */
 #ifndef LIFE_LIFEALGORITHMS_H
 #define LIFE_LIFEALGORITHMS_H
+
 #include <vector>
 #include "cellsRepresentation.h"
 
-void resetGrid(std::vector<std::vector<Cells>> &grid);
+
 void adaptGrid(std::vector<std::vector<Cells>> &grid);
+
 /**
  * Count the number of neighbours around a spcific cell
  * @param grid grid of cells
@@ -29,11 +31,12 @@ int countNeighbours(const std::vector<std::vector<Cells>> &grid, int x, int y);
  * @param dirY direction on the y axis we want to count (-1, 0 or 1)
  * @return true if there is a neighbour, false otherwise
  */
-bool hasNeighbour(const std::vector<std::vector<Cells>> &grid, int x, int y, int dirX, int dirY);
+bool hasNeighbour(const std::vector<std::vector<Cells>> &grid, unsigned long x, unsigned long y, int dirX, int dirY);
 
 /**
  * update the grid to the next generation
  * @param grid grid of cells
  */
 void evolution(std::vector<std::vector<Cells>> &grid);
+
 #endif //LIFE_LIFEALGORITHMS_H

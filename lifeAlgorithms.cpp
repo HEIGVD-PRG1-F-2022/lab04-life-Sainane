@@ -50,7 +50,7 @@ int countNeighbours(const vector<vector<Cells>> &grid, int x, int y) {
     return numberOfNeighbours;
 }
 
-bool hasNeighbour(const vector<vector<Cells>> &grid, int x, int y, int dirX, int dirY) {
+bool hasNeighbour(const vector<vector<Cells>> &grid, unsigned long x, unsigned long y, int dirX, int dirY) {
     //unsigned long coordX, coordY;
     calculateNewClosedCoord(grid.size(), grid[0].size(), x, y, dirX, dirY);
     return (grid[x][y] != Cells::DEAD);
