@@ -12,22 +12,6 @@
 
 using namespace std;
 
-ostream &operator<<(ostream &os, const Cells &cell) {
-    os << ((cell == Cells::DEAD) ? DEAD_CELL_DISPLAY : ALIVE_CELL_DISPLAY);
-    return os;
-}
-
-ostream &operator<<(ostream &os, const vector<vector<Cells>> &grid) {
-    string toShow;
-    for (const auto &i: grid) {
-        for (const auto &j: i) {
-            os << j;
-        }
-        os << endl;
-    }
-    return os;
-}
-
 
 void showEvolution(const vector<vector<Cells>> &grid) {
     string toShow;

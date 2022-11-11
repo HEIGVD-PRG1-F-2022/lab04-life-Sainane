@@ -39,7 +39,6 @@ void simulateLife(vector<vector<Cells>> &grid, int numberOfEvolution, bool adapt
 
 
 void playGameOfLife() {
-    //startingScreen();
     bool adaptativeGrid = false;
     vector<vector<Cells>> grid(GRID_SIZE_X, vector<Cells>(GRID_SIZE_Y, Cells::DEAD));
     userInterface(grid, adaptativeGrid);

@@ -15,46 +15,6 @@
 using namespace std;
 
 
-void userInterface3(vector<vector<Cells>> &grid, bool &adaptativeGrid) {
-
-    while (true) {
-        clearConsole();
-        setConsoleCursor();
-        cout << "Enter the number of the option you want" << endl;
-        cout << "1) Change grid type (current : " << (adaptativeGrid ? "Adaptative" : "Fixed / infinite") << ")"
-             << endl;
-        cout << "2) Free pattern simulation" << endl;
-        cout << "3) Simulation with predefined patterns" << endl;
-        int menu;
-
-        while (not(cin >> menu)) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-
-        switch (menu) {
-            case 1 :
-                adaptativeGrid = !adaptativeGrid;
-                break;
-            case 2 :
-                if (userDrawGrid(grid)) {
-                    return;
-                }
-                break;
-            case 3 :
-                if (selectPattern(grid)) {
-                    return;
-                }
-                break;
-            default :
-                break;
-
-        }
-
-    }
-
-}
-
 void showSelectionBoard(const vector<vector<Cells>> &grid, unsigned long &x, unsigned long &y) {
     string toShow;
     toShow += "\n";
@@ -192,10 +152,12 @@ void userInterface(vector<vector<Cells>> &grid, bool &adaptativeGrid) {
     choice = menu(TITLE, "Choose grid type : ", {"Fixed/Closed", "Adaptative"});
     switch (choice) {
         case 0 :
-            adaptativeGrid = 0;
+            adaptativeGrid = false;
             break;
         case 1 :
-            adaptativeGrid = 1;
+            adaptativeGrid = true;
+            break;
+        default :
             break;
     }
 
@@ -208,6 +170,8 @@ void userInterface(vector<vector<Cells>> &grid, bool &adaptativeGrid) {
             break;
         case 1 :
             selectPattern(grid);
+            break;
+        default :
             break;
     }
 }

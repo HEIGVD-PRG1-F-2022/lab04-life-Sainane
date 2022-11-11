@@ -1,5 +1,4 @@
 #include "gameOfLife.h"
-#include "cellsRepresentation.h"
 #include "util.h"
 
 using namespace std;
