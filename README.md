@@ -55,6 +55,7 @@ indicated commands.
 ![gridType.png](images/gridType.png)
 **Fixed/closed** : The grid is of fixed size and closed on itself, meaning the cell of index (grid.size(),
 grid.size()) = (-1, -1).
+![fixedGridExecution.png](images/fixedGridExecution.png)
 **Adaptative** : The grid grows or shrink to the minimum size that allows to see the
 alive cells.
 ![adaptativeGridExecution_0.png](images/adaptativeGridExecution_0.png)
