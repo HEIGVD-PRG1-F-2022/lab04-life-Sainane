@@ -1,4 +1,5 @@
 /**
+ * Useful functions to calculate evolutions and grid of game
  * @author : Rachel Tranchida
  * @date : 02.11.2022
  * @file : lifeAlgorithms
@@ -10,7 +11,10 @@
 #include <vector>
 #include "cellsRepresentation.h"
 
-
+/**
+ * Adapt the size of the grid to have the the minimum size to represent all alive cells
+ * @param grid the grid we want to adapt
+ */
 void adaptGrid(std::vector<std::vector<Cells>> &grid);
 
 /**

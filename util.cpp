@@ -1,4 +1,5 @@
 /**
+ * useful function not directly related to the game of life
  * @author : Rachel Tranchida
  * @date : 02.11.2022
  * @file : util

@@ -11,8 +11,10 @@
 #include "windows.h"
 
 #else
+
 #include <cstdlib>
 #include <unistd.h>
+
 #endif
 
 /**
@@ -44,6 +46,9 @@ void setConsoleCursor(short i = 0, short j = 0);
 void calculateNewClosedCoord(unsigned long vectorSizeX, unsigned long vectorSizeY, unsigned long &x, unsigned long &y,
                              int dirX, int dirY);
 
+/**
+ * hides the cursor in console
+ */
 void hideCursor();
 
 #endif //LIFE_UTIL_H

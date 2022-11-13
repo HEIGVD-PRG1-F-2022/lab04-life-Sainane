@@ -14,6 +14,11 @@ using namespace std;
 
 
 void showEvolution(const vector<vector<Cells>> &grid) {
+
+    cout << gridCellsToString(grid) << endl;
+}
+
+string gridCellsToString(const vector<vector<Cells>> &grid) {
     string toShow;
     toShow += "#";
     for (int i = 0; i < grid[0].size() + 1; i++) {
@@ -32,6 +37,5 @@ void showEvolution(const vector<vector<Cells>> &grid) {
     for (int i = 0; i < grid[0].size() + 1; i++) {
         toShow += " #";
     }
-
-    cout << toShow << endl;
+    return toShow;
 }

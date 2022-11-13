@@ -41,7 +41,7 @@ void showSelectionBoard(const vector<vector<Cells>> &grid, unsigned long &x, uns
     setConsoleCursor(0, 1);
 }
 
-bool userDrawGrid(vector<vector<Cells>> &grid) {
+void userDrawGrid(vector<vector<Cells>> &grid) {
 
     char choice;
     unsigned long x(0), y(0);
@@ -62,7 +62,7 @@ bool userDrawGrid(vector<vector<Cells>> &grid) {
 
         switch (choice) {
             case START :
-                return true;
+                return;
             case UP :
                 dirX = -1;
                 break;
@@ -87,25 +87,18 @@ bool userDrawGrid(vector<vector<Cells>> &grid) {
     }
 }
 
-bool selectPattern(vector<vector<Cells>> &grid) {
+void selectPattern(vector<vector<Cells>> &grid) {
     int number;
-    cout << "1) Still life" << endl;
-    showEvolution(BOAT);
-    cout << "2) Spaceship" << endl;
-    showEvolution(GLIDER);
-    cout << "3) Oscillator" << endl;
-    showEvolution(MAZING);
-    cout << "4) Glider Gun" << endl;
-    showEvolution(GLIDER_GUN);
-    cout << "Choose pattern number : " << endl;
-    while (not(cin >> number)) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    }
-
+    number = menu(TITLE, "Choose a pattern",
+                  {
+                          "Still life \n" + gridCellsToString(BOAT),
+                          "Spaceship \n" + gridCellsToString(GLIDER),
+                          "Oscillator \n" + gridCellsToString(MAZING),
+                          "Glider Gun \n" + gridCellsToString(GLIDER_GUN)});
+    
     switch (number) {
         case 0 :
-            return false;
+            return;
         case 1 :
             addStructure(grid, BOAT);
             break;
@@ -121,7 +114,6 @@ bool selectPattern(vector<vector<Cells>> &grid) {
         default :
             break;
     }
-    return true;
 }
 
 int menu(const string &title, const string &description, const vector<string> &options) {
