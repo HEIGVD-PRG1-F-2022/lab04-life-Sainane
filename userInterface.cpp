@@ -95,20 +95,18 @@ void selectPattern(vector<vector<Cells>> &grid) {
                           "Spaceship \n" + gridCellsToString(GLIDER),
                           "Oscillator \n" + gridCellsToString(MAZING),
                           "Glider Gun \n" + gridCellsToString(GLIDER_GUN)});
-    
+
     switch (number) {
         case 0 :
-            return;
-        case 1 :
             addStructure(grid, BOAT);
             break;
-        case 2 :
+        case 1 :
             addStructure(grid, GLIDER);
             break;
-        case 3 :
+        case 2 :
             addStructure(grid, MAZING, 1, 1);
             break;
-        case 4 :
+        case 3 :
             addStructure(grid, GLIDER_GUN);
             break;
         default :
