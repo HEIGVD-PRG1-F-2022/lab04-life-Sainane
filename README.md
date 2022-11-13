@@ -51,8 +51,8 @@ indicated commands.
 ![patternSelection.png](images/patternSelection.png)
 
 ### Grid type selection
-
 ![gridType.png](images/gridType.png)
+
 **Fixed/closed** : The grid is of fixed size and closed on itself, meaning the cell of index (grid.size(),
 grid.size()) = (-1, -1).
 ![fixedGridDemo.gif](images/fixedGridDemo.gif)
