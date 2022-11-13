@@ -1,4 +1,5 @@
 # Life : The Game Of Life
+![alt text](https://github.com/HEIGVD-PRG1-F-2022/lab04-life-Sainane/blob/main/images/gameOfLifeExecution.png)
 
 ## Description
 
