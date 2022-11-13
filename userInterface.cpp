@@ -91,10 +91,10 @@ void selectPattern(vector<vector<Cells>> &grid) {
     int number;
     number = menu(TITLE, "Choose a pattern",
                   {
-                          "Still life \n" + gridCellsToString(BOAT),
-                          "Spaceship \n" + gridCellsToString(GLIDER),
-                          "Oscillator \n" + gridCellsToString(MAZING),
-                          "Glider Gun \n" + gridCellsToString(GLIDER_GUN)});
+                          "Still life \n" + gridCellsToString(BOAT) + "\n",
+                          "Spaceship \n" + gridCellsToString(GLIDER) + "\n",
+                          "Oscillator \n" + gridCellsToString(MAZING) + "\n",
+                          "Glider Gun \n" + gridCellsToString(GLIDER_GUN) + "\n"});
 
     switch (number) {
         case 0 :
@@ -122,7 +122,7 @@ int menu(const string &title, const string &description, const vector<string> &o
     for (int i = 0; i < options.size(); i++) {
         cout << i << ")" << " " << options[i] << endl;
     }
-
+    cout << endl << "Write the number and press enter : ";
     int choice;
     while (not(cin >> choice) or (choice < 0 or choice >= options.size())) {
         cin.clear();
@@ -136,10 +136,15 @@ int menu(const string &title, const string &description, const vector<string> &o
 
 void userInterface(vector<vector<Cells>> &grid, bool &adaptativeGrid) {
     int choice;
-    menu(TITLE, "",
+    string startingScreenDesc =
+            "This is c++ version of Conway's Game of Life. \nYou will choose the type of grid you want and the starting pattern. \nThe number of evolution is fixed to " +
+            to_string(EVOLUTION_NUMBER) + " and the fixed/closed grid to" + to_string(GRID_SIZE_X) + "x" +
+            to_string(GRID_SIZE_Y);
+    menu(TITLE,
+         startingScreenDesc,
          {"Enter 0 to start"});
 
-    choice = menu(TITLE, "Choose grid type : ", {"Fixed/Closed", "Adaptative"});
+    choice = menu(TITLE, "Choose grid type", {"Fixed/Closed", "Adaptative"});
     switch (choice) {
         case 0 :
             adaptativeGrid = false;
@@ -151,7 +156,8 @@ void userInterface(vector<vector<Cells>> &grid, bool &adaptativeGrid) {
             break;
     }
 
-    choice = menu(TITLE, "Enter the number of the option you want",
+    choice = menu(TITLE,
+                  "Choose if you want to draw the starting pattern or use existing ones.",
                   {"Free pattern simulation", "Simulation with predefined patterns"});
 
     switch (choice) {
