@@ -21,7 +21,7 @@ void showSelectionBoard(const vector<vector<Cells>> &grid, unsigned long &x, uns
 
     for (size_t i = 0; i < grid.size(); i++) {
         for (size_t j = 0; j < grid[i].size(); j++) {
-            if (x == i and y == j) {
+            if (x == i and y == j) { //if the cell is the one selected --> different color
                 toShow += "\x1b[38;2;85;85;255m";
                 toShow += ((grid[i][j] == Cells::ALIVE) ? " o" : " x");
                 toShow += "\x1b[0m";
@@ -33,12 +33,10 @@ void showSelectionBoard(const vector<vector<Cells>> &grid, unsigned long &x, uns
         }
         toShow += "\n";
     }
-    setConsoleCursor(0, 0);
     clearConsole();
 
     cout << toShow << endl;
-    setConsoleCursor(0, 0);
-    setConsoleCursor(0, 1);
+    setConsoleCursor(0, 0); //put the cursor back to start to prevent the grid from moving
 }
 
 void userDrawGrid(vector<vector<Cells>> &grid) {
@@ -57,7 +55,8 @@ void userDrawGrid(vector<vector<Cells>> &grid) {
              << CHANGE_CELL_STATE << ", start simulation : " << START << ") : ";
 
         while (not(cin >> choice)) {
-
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
 
         switch (choice) {
@@ -81,6 +80,9 @@ void userDrawGrid(vector<vector<Cells>> &grid) {
             default :
                 break;
         }
+        //calculate coord of closed grid,
+        // if the selected cell is at the right extremity and the user moves right,
+        // it appears to the left extremity
         calculateNewClosedCoord(grid.size(), grid[0].size(), x, y,
                                 dirX,
                                 dirY);
@@ -89,6 +91,7 @@ void userDrawGrid(vector<vector<Cells>> &grid) {
 
 void selectPattern(vector<vector<Cells>> &grid) {
     int number;
+
     number = menu(TITLE, "Choose a pattern",
                   {
                           "Still life \n" + gridCellsToString(BOAT) + "\n",

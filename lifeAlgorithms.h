@@ -18,7 +18,7 @@
 void adaptGrid(std::vector<std::vector<Cells>> &grid);
 
 /**
- * Count the number of neighbours around a spcific cell
+ * Count the number of neighbours around a specific cell
  * @param grid grid of cells
  * @param x x coordinate of cell
  * @param y y coordinate of cell

@@ -7,8 +7,12 @@
  */
 #ifndef LIFE_CONFIG_H
 #define LIFE_CONFIG_H
-#define DEAD_CELL_DISPLAY "\x1b[38;2;0;0;0m ■\x1b[0m"
-#define ALIVE_CELL_DISPLAY "\x1b[38;2;255;255;255m ■\x1b[0m"
+
+//grid printing constants
+const std::string DEAD_CELL_DISPLAY = "\x1b[38;2;0;0;0m ■\x1b[0m";
+const std::string ALIVE_CELL_DISPLAY = "\x1b[38;2;255;255;255m ■\x1b[0m";
+//character printed for border
+const std::string BORDER = "#";
 
 //simulation preset
 const unsigned long GRID_SIZE_X = 40;

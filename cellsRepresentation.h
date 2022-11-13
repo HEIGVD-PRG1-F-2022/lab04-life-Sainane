@@ -15,6 +15,7 @@ enum class Cells {
     DEAD, ALIVE
 };
 
+
 /**
  * print the grid of cells
  * @param grid grid of cells

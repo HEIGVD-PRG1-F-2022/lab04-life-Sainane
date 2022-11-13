@@ -39,6 +39,7 @@ void simulateLife(vector<vector<Cells>> &grid, int numberOfEvolution, bool adapt
 
 
 void playGameOfLife() {
+    setWindowsConsoleToUTF8(); //for correct output on Windows OS
     bool adaptativeGrid = false;
     vector<vector<Cells>> grid(GRID_SIZE_X, vector<Cells>(GRID_SIZE_Y, Cells::DEAD));
     //ask user to initialise grid and choose if the grid is adaptative or not

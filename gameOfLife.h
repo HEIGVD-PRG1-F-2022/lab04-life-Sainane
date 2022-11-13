@@ -11,7 +11,10 @@
 #include "cellsRepresentation.h"
 #include <vector>
 
-
+/**
+ * play the game, ask the user what he want to do and start simulation
+ * uses the fixed grid size and the number of evolution as defined in config.h
+ */
 void playGameOfLife();
 
 /**
