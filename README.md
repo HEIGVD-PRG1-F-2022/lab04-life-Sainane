@@ -1,6 +1,6 @@
 # Life : The Game of Life
 
-![titleDemo.gif](images/titleDemo.gif)
+![introductionDemo.gif](images/introductionDemo.gif)
 
 ## Description
 
@@ -55,9 +55,9 @@ indicated commands.
 ![gridType.png](images/gridType.png)
 **Fixed/closed** : The grid is of fixed size and closed on itself, meaning the cell of index (grid.size(),
 grid.size()) = (-1, -1).
-![fixedGridDemo](images/fixedGridDemo.gif)
+![fixedGridDemo.gif](images/fixedGridDemo.gif)
 
 **Adaptative** : The grid grows or shrink to the minimum size that allows to see the
 alive cells.
-![adaptativeGridDemo](images/adaptativeGridDemo.gif)
+![adaptativeGridDemo.gif](images/adaptativeGridDemo.gif)
 
