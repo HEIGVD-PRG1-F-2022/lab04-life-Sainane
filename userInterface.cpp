@@ -144,17 +144,6 @@ void userInterface(vector<vector<Cells>> &grid, bool &adaptativeGrid) {
          startingScreenDesc,
          {"Enter 0 to start"});
 
-    choice = menu(TITLE, "Choose grid type", {"Fixed/Closed", "Adaptative"});
-    switch (choice) {
-        case 0 :
-            adaptativeGrid = false;
-            break;
-        case 1 :
-            adaptativeGrid = true;
-            break;
-        default :
-            break;
-    }
 
     choice = menu(TITLE,
                   "Choose if you want to draw the starting pattern or use existing ones.",
@@ -166,6 +155,17 @@ void userInterface(vector<vector<Cells>> &grid, bool &adaptativeGrid) {
             break;
         case 1 :
             selectPattern(grid);
+            break;
+        default :
+            break;
+    }
+    choice = menu(TITLE, "Choose grid type", {"Fixed/Closed", "Adaptative"});
+    switch (choice) {
+        case 0 :
+            adaptativeGrid = false;
+            break;
+        case 1 :
+            adaptativeGrid = true;
             break;
         default :
             break;
