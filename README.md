@@ -1,6 +1,6 @@
 # Life : The Game of Life
 
-![adaptativeGridExecution_1.png](images/adaptativeGridExecution_1.png)
+![titleDemo.gif](images/titleDemo.gif)
 
 ## Description
 
